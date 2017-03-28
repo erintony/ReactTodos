@@ -7,7 +7,7 @@ import Footer from './footer'
 class Todos extends React.Component {
 	constructor(){
 		super();
-		this.state = {items: []}
+		this.state = {items: [], allDone: false}
 	}
 
 	addItem(item){
@@ -15,11 +15,24 @@ class Todos extends React.Component {
 		this.setState(this.state);
 	}
 
+	removeItem(index){
+		this.state.items.splice(index,1);
+		this.setState(this.state);
+	}
+
+	/**
+	* Mark all as complete
+	*/
+	markAllToggle{
+		this.state.allDone = !this.state.allDone;
+		this.setState(this.state);
+	}
+
 	render () {
 		return(
 			<div>
 				<Header addItem={this.addItem.bind(this)} />
-				<Main items={this.state.items} />
+				<Main items={this.state.items} markAllToggle={this.markAllToggle.bind(this)} removeItem={this.removeItem.bind(this)} />
 				<Footer items={this.state.items}/>
 			</div>
 		);

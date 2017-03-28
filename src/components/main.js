@@ -8,13 +8,13 @@ class Main extends React.Component {
 
 			return (
 				<section id="main">
-			      <input id="toggle-all" type="checkbox" />
+			      <input id="toggle-all" onClick={this.props.markAllToggle} type="checkbox" />
 			      <label htmlFor="toggle-all">Mark all as complete</label>
 			      <ul id="todo-list">
 					{						
 						this.props.items.map((todo,index) => {
              
-             				 return <Item item={todo} index={index} key={index} />
+             				 return <Item item={todo} index={index} key={index} {...this.props} />
        				    })
 					}
 			      </ul>
