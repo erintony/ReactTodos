@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Item from './item'
  
+/**
+* this component use to display items 
+*/ 
 class Main extends React.Component {
 	render () {
 		if(this.props.items.length > 0){

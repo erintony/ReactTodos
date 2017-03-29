@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
  
+/**
+* head component, accept user input 
+*/
 class Header extends React.Component {
 	handleKeyUp(event){
 		if(event.keyCode == 13){
