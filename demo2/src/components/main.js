@@ -1,0 +1,40 @@
+import React from 'react'
+import TodosAction from '../action/TodosAppAction';
+import Item from './item'
+ 
+/**
+* this component use to display items 
+*/ 
+class Main extends React.Component {
+
+    markAllToggle() {
+		TodosAction.markAllToggle();
+	}
+
+	render () {
+		if(this.props.items.length > 0){
+
+			return (
+				<section id="main">
+			      <input id="toggle-all" onClick={this.markAllToggle} type="checkbox" />
+			      <label htmlFor="toggle-all">Mark all as complete</label>
+			      <ul id="todo-list">
+					{						
+						this.props.items.map((todo,index) => {
+             
+             				 return <Item item={todo} index={index} key={index} {...this.props} />
+       				    })
+					}
+			      </ul>
+			    </section>
+			);
+		}else{
+			return(
+				<b>There are nothing left. </b>
+			);
+		}
+		
+	}
+}
+
+export default Main

@@ -1,0 +1,29 @@
+{
+  "name": "todos",
+  "version": "1.0.0",
+  "description": "react todos practise",
+  "main": "index.js",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2015-loose": "^8.0.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-runtime": "^6.23.0",
+    "flux": "^3.1.2",
+    "jquery": "^3.2.1",
+    "react": "^15.5.3",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.3.1",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --colors --watch",
+    "demo2":"webpack-dev-server --hot --inline"
+  },
+  "author": "vanessa",
+  "license": "ISC"
+}
