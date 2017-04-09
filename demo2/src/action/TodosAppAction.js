@@ -42,6 +42,16 @@ class TodosActionClass {
         });
     }
 
+    /**
+     * 一个item checkbox点击事件
+     */
+    toggleDone(index){
+        AppDispatcher.handleViewAction({
+            actionType: TodoConstants.TOGGLE_DONE,
+            index: index
+        });
+    }
+
 }
 
 const TodosAction = new TodosActionClass();

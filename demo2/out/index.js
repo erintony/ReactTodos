@@ -3468,7 +3468,7 @@ module.exports = __webpack_require__(19);
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3486,64 +3486,77 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var TodosActionClass = function () {
-	function TodosActionClass() {
-		_classCallCheck(this, TodosActionClass);
-	}
+  function TodosActionClass() {
+    _classCallCheck(this, TodosActionClass);
+  }
 
-	_createClass(TodosActionClass, [{
-		key: 'addItem',
+  _createClass(TodosActionClass, [{
+    key: 'addItem',
 
 
-		/**
-  * add a item
-  * called in header
-  */
-		value: function addItem(item) {
-			_AppDispatcher2.default.handleViewAction({
-				actionType: _TodoConstants2.default.NEW_ITEM,
-				item: item
-			});
-		}
+    /**
+    * add a item
+    * called in header
+    */
+    value: function addItem(item) {
+      _AppDispatcher2.default.handleViewAction({
+        actionType: _TodoConstants2.default.NEW_ITEM,
+        item: item
+      });
+    }
 
-		/**
-   * click X destroy(remove) an item
-   */
+    /**
+     * click X destroy(remove) an item
+     */
 
-	}, {
-		key: 'removeItem',
-		value: function removeItem(index) {
-			_AppDispatcher2.default.handleViewAction({
-				actionType: _TodoConstants2.default.REMOVE_ITEM,
-				index: index
-			});
-		}
+  }, {
+    key: 'removeItem',
+    value: function removeItem(index) {
+      _AppDispatcher2.default.handleViewAction({
+        actionType: _TodoConstants2.default.REMOVE_ITEM,
+        index: index
+      });
+    }
 
-		/**
-   * Mark all as complete
-   */
+    /**
+     * Mark all as complete
+     */
 
-	}, {
-		key: 'markAllToggle',
-		value: function markAllToggle() {
-			_AppDispatcher2.default.handleViewAction({
-				actionType: _TodoConstants2.default.MARK_ALL_TOGGLE
-			});
-		}
+  }, {
+    key: 'markAllToggle',
+    value: function markAllToggle() {
+      _AppDispatcher2.default.handleViewAction({
+        actionType: _TodoConstants2.default.MARK_ALL_TOGGLE
+      });
+    }
 
-		/**
-   * clear done items
-   */
+    /**
+     * clear done items
+     */
 
-	}, {
-		key: 'clearCompleted',
-		value: function clearCompleted() {
-			_AppDispatcher2.default.handleViewAction({
-				actionType: _TodoConstants2.default.CLEAR_COMPLETED
-			});
-		}
-	}]);
+  }, {
+    key: 'clearCompleted',
+    value: function clearCompleted() {
+      _AppDispatcher2.default.handleViewAction({
+        actionType: _TodoConstants2.default.CLEAR_COMPLETED
+      });
+    }
 
-	return TodosActionClass;
+    /**
+     * 一个item checkbox点击事件
+     */
+
+  }, {
+    key: 'toggleDone',
+    value: function toggleDone(index) {
+      _AppDispatcher2.default.handleViewAction({
+        actionType: _TodoConstants2.default.TOGGLE_DONE,
+        index: index
+      });
+    }
+  }]);
+
+  return TodosActionClass;
 }();
 
 var TodosAction = new TodosActionClass();
@@ -6761,14 +6774,14 @@ module.exports = ReactNoopUpdateQueue;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+   value: true
 });
 var TodoConstants = exports.TodoConstants = {
-  NEW_ITEM: 'NEW_ITEM',
-  REMOVE_ITEM: 'REMOVE_ITEM',
-  MARK_ALL_TOGGLE: 'MARK_ALL_TOGGLE',
-  CLEAR_COMPLETED: 'CLEAR_COMPLETED'
-};
+   NEW_ITEM: 'NEW_ITEM', //添加item
+   REMOVE_ITEM: 'REMOVE_ITEM', //删除一个item
+   MARK_ALL_TOGGLE: 'MARK_ALL_TOGGLE', //toggle all done or not
+   CLEAR_COMPLETED: 'CLEAR_COMPLETED', //删除所有状态为done的item
+   TOGGLE_DONE: 'TOGGLE_DONE' };
 
 exports.default = TodoConstants;
 
@@ -9706,17 +9719,6 @@ var TodosApp = function (_React$Component) {
 		value: function _onChange() {
 			this.setState(_TodoStore2.default.getList());
 		}
-
-		/**
-  * 一个item checkbox点击事件
-  */
-
-	}, {
-		key: 'toggleDone',
-		value: function toggleDone(index) {
-			this.state.items[index].done = !this.state.items[index].done;
-			this.setState(this.state);
-		}
 	}, {
 		key: 'render',
 		value: function render() {
@@ -9724,7 +9726,7 @@ var TodosApp = function (_React$Component) {
 				'div',
 				null,
 				_react2.default.createElement(_header2.default, null),
-				_react2.default.createElement(_main2.default, { items: this.state.items, toggleDone: this.toggleDone.bind(this) }),
+				_react2.default.createElement(_main2.default, { items: this.state.items }),
 				_react2.default.createElement(_footer2.default, { items: this.state.items })
 			);
 		}
@@ -9955,18 +9957,12 @@ var Item = function (_React$Component) {
 		return _this;
 	}
 
+	/**
+ * doubleClick to change state to edit
+ */
+
+
 	_createClass(Item, [{
-		key: "removeItem",
-		value: function removeItem() {
-			//console.log("removeItem");
-			_TodosAppAction2.default.removeItem(this.props.index);
-		}
-
-		/**
-  * doubleClick to change state to edit
-  */
-
-	}, {
 		key: "edit",
 		value: function edit() {
 			//$(this.refs.edit).addClass("editing");
@@ -9987,11 +9983,6 @@ var Item = function (_React$Component) {
 			this.setState(this.state);
 		}
 	}, {
-		key: "toggleDone",
-		value: function toggleDone() {
-			this.props.toggleDone(this.props.index);
-		}
-	}, {
 		key: "componentDidUpdate",
 		value: function componentDidUpdate() {
 			if (this.state.editing) {
@@ -10004,21 +9995,22 @@ var Item = function (_React$Component) {
 			var done = this.props.item.done ? "done" : "";
 			done += this.state.editing ? " editing" : "";
 
-			var autoFocus = this.state.editing ? "true" : "false";
 			return _react2.default.createElement(
 				"li",
 				{ ref: "edit", className: done },
 				_react2.default.createElement(
 					"div",
 					{ className: "view", onDoubleClick: this.edit.bind(this) },
-					_react2.default.createElement("input", { className: "toggle", checked: done ? "checked" : "", onClick: this.toggleDone.bind(this), type: "checkbox" }),
+					_react2.default.createElement("input", { className: "toggle", checked: done ? "checked" : "",
+						onClick: _TodosAppAction2.default.toggleDone.bind(this, this.props.index),
+						type: "checkbox" }),
 					_react2.default.createElement(
 						"label",
 						null,
 						this.props.item.value,
 						" "
 					),
-					_react2.default.createElement("a", { className: "destroy", onClick: this.removeItem.bind(this) })
+					_react2.default.createElement("a", { className: "destroy", onClick: _TodosAppAction2.default.removeItem.bind(this, this.props.index) })
 				),
 				_react2.default.createElement("input", { ref: "input", className: "edit", autoFocus: true, onBlur: this.close.bind(this), type: "text", defaultValue: this.props.item.value })
 			);
@@ -10078,11 +10070,6 @@ var Main = function (_React$Component) {
 	}
 
 	_createClass(Main, [{
-		key: 'markAllToggle',
-		value: function markAllToggle() {
-			_TodosAppAction2.default.markAllToggle();
-		}
-	}, {
 		key: 'render',
 		value: function render() {
 			var _this2 = this;
@@ -10092,7 +10079,7 @@ var Main = function (_React$Component) {
 				return _react2.default.createElement(
 					'section',
 					{ id: 'main' },
-					_react2.default.createElement('input', { id: 'toggle-all', onClick: this.markAllToggle, type: 'checkbox' }),
+					_react2.default.createElement('input', { id: 'toggle-all', onClick: _TodosAppAction2.default.markAllToggle, type: 'checkbox' }),
 					_react2.default.createElement(
 						'label',
 						{ htmlFor: 'toggle-all' },
@@ -10206,12 +10193,12 @@ var TodoStoreClass = function (_EventEmiter) {
 	return TodoStoreClass;
 }(_events2.default);
 
+var TodoStore = new TodoStoreClass();
+
 /**
 *  Registers a callback to be invoked with every dispatched payload.
 *  Returns a token that can be used with waitFor().
 */
-
-
 _AppDispatcher2.default.register(function (payload) {
 	var action = payload.action;
 
@@ -10246,11 +10233,18 @@ _AppDispatcher2.default.register(function (payload) {
 			});
 			_store.items = items;
 			TodoStore.emit(CHANGE_EVENT);
+			break;
+
+		case _TodoConstants2.default.TOGGLE_DONE:
+			/**
+    * 一个item checkbox点击事件
+    */
+			_store.items[action.index].done = !_store.items[action.index].done;
+			TodoStore.emit(CHANGE_EVENT);
 
 	}
 });
 
-var TodoStore = new TodoStoreClass();
 exports.default = TodoStore;
 
 /***/ }),

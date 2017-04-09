@@ -31,20 +31,11 @@ class TodosApp extends React.Component {
 	}
 
 
-	/**
-	* 一个item checkbox点击事件
-	*/
-	toggleDone(index) {
-		this.state.items[index].done = !this.state.items[index].done;
-		this.setState(this.state);
-	}
-
-
 	render () {
 		return(
 			<div>
 				<Header />
-				<Main items={this.state.items} toggleDone={this.toggleDone.bind(this)} />
+				<Main items={this.state.items} />
 				<Footer items={this.state.items} />
 			</div>
 		);

@@ -30,6 +30,8 @@ class TodoStoreClass extends EventEmiter {
 
 }
 
+const TodoStore = new TodoStoreClass();
+
 
 /**
 *  Registers a callback to be invoked with every dispatched payload.
@@ -70,10 +72,17 @@ AppDispatcher.register(
             });
             _store.items = items;
             TodoStore.emit(CHANGE_EVENT);
+            break;
+
+        case TodoConstants.TOGGLE_DONE :
+            /**
+             * 一个item checkbox点击事件
+             */
+            _store.items[action.index].done = !_store.items[action.index].done;
+            TodoStore.emit(CHANGE_EVENT);
+
 
 	}
 });
 
-
-const TodoStore = new TodoStoreClass();
 export default TodoStore;

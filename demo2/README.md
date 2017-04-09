@@ -1,6 +1,6 @@
 # 项目说明
 使用react.js ,模仿Backone.js todos 实现,
-使用facebook官方推荐的flux框架统一管理数据
+使用facebook构建react应用使用的flux框架统一管理数据
 
 ## 环境
 - react 
@@ -32,6 +32,6 @@
 - Store 更新后，发出一个"change"事件
 - View 收到"change"事件后，更新页面
 
-##参考
+## 参考
 - [flux官方文档](http://facebook.github.io/flux/docs/overview.html#content)
 - [阮一峰flux教程](http://www.ruanyifeng.com/blog/2016/01/flux.html)

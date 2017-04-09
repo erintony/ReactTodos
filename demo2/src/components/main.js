@@ -7,16 +7,12 @@ import Item from './item'
 */ 
 class Main extends React.Component {
 
-    markAllToggle() {
-		TodosAction.markAllToggle();
-	}
-
 	render () {
 		if(this.props.items.length > 0){
 
 			return (
 				<section id="main">
-			      <input id="toggle-all" onClick={this.markAllToggle} type="checkbox" />
+			      <input id="toggle-all" onClick={TodosAction.markAllToggle} type="checkbox" />
 			      <label htmlFor="toggle-all">Mark all as complete</label>
 			      <ul id="todo-list">
 					{						
