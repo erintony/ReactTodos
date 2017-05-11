@@ -1,10 +1,11 @@
+/*
 import React from 'react';
 import TodosAction from '../action/TodosAppAction';
 
 class Footer extends React.Component {
-	/**
+	/!**
 	* get the number of done item
-	*/
+	*!/
 	getComplete() {
 		let completed = 0;
 		for(let item of this.props.items) {
@@ -24,4 +25,4 @@ class Footer extends React.Component {
 	}
 }
 
-export default Footer
+export default Footer*/

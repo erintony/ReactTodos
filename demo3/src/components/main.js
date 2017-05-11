@@ -1,10 +1,11 @@
+/*
 import React from 'react'
 import TodosAction from '../action/TodosAppAction';
 import Item from './item'
  
-/**
+/!**
 * this component use to display items 
-*/ 
+*!/
 class Main extends React.Component {
 
 	render () {
@@ -33,4 +34,4 @@ class Main extends React.Component {
 	}
 }
 
-export default Main
+export default Main*/

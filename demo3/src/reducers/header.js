@@ -2,11 +2,24 @@
  * Created by vanessa on 2017/5/2.
  * header reducer
  */
-import TodoContants from '../contants/TodoContants';
+import TodoContants from '../constants/TodoConstants';
 
-export default (state, action) => {
+const defaultState = {
+    todos: [],
+    allDone: false,
+}
+function header (state = defaultState, action) {
+    let newState = state;
     switch (action.type) {
         case TodoContants.NEW_ITEM:
-            return ;
+            let todo = {text: action.text, done: false}
+            newState.todos.push(todo);
+            break;
+        default:
+            break;
     }
+    return state;
+
 }
+
+export default header;
