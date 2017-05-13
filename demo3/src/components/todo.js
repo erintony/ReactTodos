@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes  from 'prop-types';
 
-const Todo = ({ done, text, index }) => (
-
-    <li className={done} >
+const Todo = ({ done, text, index ,onTodoClick, removeTodo}) => (
+    <li className={done? "done": ""} >
 		<div className="view" >
-		<input className="toggle" checked={done?"checked":""}
-
-			type="checkbox" />
-			<label>{text} </label>
-		<a className="destroy"  ></a>
+			<input className="toggle" checked={done?"checked":""}
+				   onClick={onTodoClick}
+				   type="checkbox" />
+				<label>{text} </label>
+			<a className="destroy" onClick={removeTodo }  ></a>
 		</div>
 		<input className="edit" autoFocus type="text" defaultValue={text} />
 	</li>

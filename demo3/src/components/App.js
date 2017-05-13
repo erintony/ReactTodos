@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import Header from './header';
-import { add } from '../actions/headerActions';
-import TodoList from './TodoList';
+import { add } from '../actions/todos';
+import VisableTodoList from '../container/VisableTodoList';
 import Footer from './footer';
 import { connect } from 'react-redux';
 
@@ -22,7 +22,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<Header addTodo={text => this.props.dispatch(add(text))} />
-				<TodoList todos = {this.props.todos} />
+				<VisableTodoList />
 			</div>
 		)
 	}

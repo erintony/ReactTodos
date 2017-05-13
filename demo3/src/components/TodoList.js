@@ -5,19 +5,21 @@ import Todo from './todo';
 * this component use to display items 
 */
 
-const TodoList = ( todos, onTodoClick ) => {
+const TodoList = ({ todos, onTodoClick, removeTodo }) => {
 
-    if(todos.todos.length > 0){
-
+    if(todos.length > 0){
         return (
 			<section id="main">
 				<input id="toggle-all" type="checkbox" />
 				<label htmlFor="toggle-all">Mark all as complete</label>
 				<ul id="todo-list">
                     {
-                        todos.todos.map((todo,index) => {
-
-                            return <Todo index={index} key={index} {...todo} />
+                        todos.map((todo,index) => {
+							return <Todo
+								index={index} key={index} {...todo}
+								onTodoClick={() =>  onTodoClick(index) }
+								removeTodo = {() => removeTodo(index) }
+							/>
                         })
                     }
 				</ul>
