@@ -8,6 +8,9 @@ import TodoList from './TodoList';
 import Footer from './footer';
 import { connect } from 'react-redux';
 
+import styles from '../css/todos.css';
+
+
 class App extends React.Component {
 
 	componentWillMount() {
