@@ -14,7 +14,7 @@ import styles from '../css/todos.css';
 class App extends React.Component {
 
 	componentWillMount() {
-		this.props.dispatch(add("2333eee"));
+		this.props.dispatch(add("2333~~~"));
 		console.dir(this.props);
 	}
 

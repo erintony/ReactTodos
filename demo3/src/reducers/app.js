@@ -3,10 +3,10 @@
  */
 
 import { combineReducers } from "redux";
-import todos from "./todos";
+import { todos, allDone } from "./todos";
 
 const app = combineReducers({
     todos,
-
+    allDone,
 });
 export default app;

@@ -3,7 +3,7 @@
  */
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { toggleTodo, removeTodo } from '../actions/todos'
+import { toggleTodo, removeTodo, toggleAll } from '../actions/todos'
 import TodoList from '../components/TodoList'
 
 /*const getVisibleTodos = (todos, filter) => {
@@ -20,7 +20,8 @@ import TodoList from '../components/TodoList'
 }
  */
 const mapStateToProps = (state) => ({
-    todos: state.todos
+    todos: state.todos,
+    allDone: state.allDone,
 })
 
 /**
@@ -42,6 +43,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     onTodoClick: toggleTodo,
     removeTodo: removeTodo,
+    toggleAll: toggleAll,
 }
 
 /**

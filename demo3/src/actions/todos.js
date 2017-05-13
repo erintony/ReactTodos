@@ -19,3 +19,8 @@ export const removeTodo = (index) => ({
     type: contants.REMOVE_ITEM,
     index
 });
+
+export const toggleAll = (done) =>({
+    type: contants.MARK_ALL_TOGGLE,
+    done
+});

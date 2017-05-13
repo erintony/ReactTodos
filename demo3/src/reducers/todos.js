@@ -19,7 +19,7 @@ const todo = (state, action) => {
     }
 }
 
-function todos (state = [], action) {
+export function todos (state = [], action) {
     let newstate = [...state];
     switch (action.type) {
         case TodoContants.NEW_ITEM:
@@ -35,10 +35,22 @@ function todos (state = [], action) {
         case TodoContants.REMOVE_ITEM:
             newstate.splice(action.index, 1);
             return newstate;
+
+        case TodoContants.MARK_ALL_TOGGLE:
+            state.map((todo) => {
+                todo.done = action.done;
+                return todo;
+            });
+            return newstate;
         default:
             return state;
     }
 
 }
 
-export default todos;
+export const allDone = (state = false, action) => {
+    if(action.type === TodoContants.MARK_ALL_TOGGLE){
+        return !state;
+    }
+    return state;
+};
