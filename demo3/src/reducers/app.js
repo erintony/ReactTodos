@@ -3,10 +3,10 @@
  */
 
 import { combineReducers } from "redux";
-import header from "./header";
+import todos from "./todos";
 
 const app = combineReducers({
-    newtodo:header,
+    todos,
 
 });
 export default app;

@@ -16,8 +16,9 @@ render(
     document.getElementById('todoapp')
 )
 
+/*
 store.subscribe(() => {
     console.log("store changed.", store.getState());
 });
 
-store.dispatch({type: "NEW_ITEM", text:"eee"});
+store.dispatch({type: "NEW_ITEM", text:"eee"});*/

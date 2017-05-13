@@ -1,23 +1,24 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes  from 'prop-types';
 
-const Todo = ({ onClick, done, text, index }) => (
+const Todo = ({ done, text, index }) => (
 
-    <li ref="edit" className={done} >
+    <li className={done} >
 		<div className="view" >
 		<input className="toggle" checked={done?"checked":""}
-			onClick={onClick}
+
 			type="checkbox" />
 			<label>{text} </label>
-		<a className="destroy" onClick={} ></a>
+		<a className="destroy"  ></a>
 		</div>
-		<input ref='input' className="edit" autoFocus onBlur={} type="text" defaultValue={this.props.item.value} />
+		<input className="edit" autoFocus type="text" defaultValue={text} />
 	</li>
 
 )
 
 Todo.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    completed: PropTypes.bool.isRequired,
+    //onClick: PropTypes.func.isRequired,
+    done: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
 }
 
