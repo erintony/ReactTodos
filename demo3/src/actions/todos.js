@@ -24,3 +24,17 @@ export const toggleAll = (done) =>({
     type: contants.MARK_ALL_TOGGLE,
     done
 });
+
+export const clearCompleted = () => ({
+    type: contants.CLEAR_COMPLETED
+});
+
+export const edit = (index) => ({
+    type: contants.EDIT_TODO,
+    index
+});
+
+export const close = (index) => ({
+    type: contants.CLOSE_EDIT,
+    index
+});

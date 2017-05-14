@@ -1,7 +1,6 @@
-/*
-import React from 'react';
-import TodosAction from '../action/TodosAppAction';
 
+import React from 'react';
+/*
 class Footer extends React.Component {
 	/!**
 	* get the number of done item
@@ -24,5 +23,15 @@ class Footer extends React.Component {
 		);
 	}
 }
+ */
+const Footer = ({ size, clearCompleted, getComplete }) => {
 
-export default Footer*/
+	return  (
+		<footer className={size > 0 ? "" : "hide"} >
+			<a id="clear-completed" onClick={ () => clearCompleted() } >Clear { getComplete()} completed item</a>
+			<div id="todo-count"><b>{ size - getComplete() }</b> item left. </div>
+		</footer>
+    );
+}
+
+export default Footer;

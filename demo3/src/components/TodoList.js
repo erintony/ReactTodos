@@ -5,7 +5,7 @@ import Todo from './todo';
 * this component use to display items 
 */
 
-const TodoList = ({ todos,allDone, onTodoClick, removeTodo,toggleAll }) => {
+const TodoList = ({ todos,allDone, onTodoClick, removeTodo,toggleAll, edit, close }) => {
 
     if(todos.length > 0){
         return (
@@ -21,6 +21,8 @@ const TodoList = ({ todos,allDone, onTodoClick, removeTodo,toggleAll }) => {
 								index={index} key={index} {...todo}
 								onTodoClick={() =>  onTodoClick(index) }
 								removeTodo = {() => removeTodo(index) }
+								edit = {() => edit(index) }
+                                close = {() => close(index, text) }
 							/>
                         })
                     }

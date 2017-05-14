@@ -42,6 +42,18 @@ export function todos (state = [], action) {
                 return todo;
             });
             return newstate;
+
+        case TodoContants.CLEAR_COMPLETED:
+            return state.filter( todo => !todo.done);
+
+        case TodoContants.EDIT_TODO:
+            newstate[action.index].editing = true;
+            return newstate;
+
+        case TodoContants.CLOSE_EDIT:
+            newstate[action.index].editing = false;
+            return newstate;
+
         default:
             return state;
     }
