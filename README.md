@@ -24,4 +24,4 @@
 在demo1基础上使用flux框架，管理数据
 
 
-test add 2
+test add 3
