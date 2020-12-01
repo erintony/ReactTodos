@@ -23,5 +23,7 @@
 ## demo2
 在demo1基础上使用flux框架，管理数据
 
+develop add 1
+
 
 test add 1
