@@ -22,3 +22,6 @@
 使用react.js ,模仿Backone.js todos 实现
 ## demo2
 在demo1基础上使用flux框架，管理数据
+
+
+test add 1
